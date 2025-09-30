@@ -1,6 +1,6 @@
 def yes_or_no(question):
     while True:
-        choice = input( question).strip().lower()
+        choice = input( question + "\n").strip().lower()
         if choice in ['yes']:
             return True
         elif choice in ['no']:
@@ -22,7 +22,7 @@ def gues_character():
                  if yes_or_no("Is this character a Skeleton musician?"):
                      print("Is your character Brook")
                  else:
-                     print("Is your character Brook")
+                     print("Is your character Zoro")
                      
 gues_character()
                     
