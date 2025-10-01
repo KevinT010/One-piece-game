@@ -1,142 +1,65 @@
+from characters_and_traits import characters, traits
+ 
 def yes_or_no(question):
     while True:
-        choice = input( question + "\n").strip().lower()
-        if choice in ['yes']:
+        answer = input(question + " (yes/no): ").strip().lower()
+        if answer in ["yes", "y"]:
             return True
-        elif choice in ['no']:
+        elif answer in ["no", "n"]:
             return False
         else:
-            print("Invalid input. Pleas type yes or no")
-            
-
+            print("Please answer yes or no.")
+ 
+def choose_best_trait( possible_characters, asked_traits):
+    best_trait = None
+    best_difference = float('inf')
+    for trait in traits:
+        if trait in asked_traits:
+            continue
+ 
+        total_characters_with_trait = sum(1 for char in  possible_characters if characters[char].get(trait, False))
+        total_characters_without_trait = len( possible_characters) - total_characters_with_trait
+       
+        differents = abs(total_characters_with_trait - total_characters_without_trait)
+        if 0 < total_characters_with_trait < len( possible_characters) and differents < best_difference:
+            best_difference = differents
+            best_trait = trait
+           
+    return best_trait
+ 
 def guess_character():
-    input(" Welcome to one piece akinitor you can choose between those characters: Franky, Brook, Luffy, Zoro, Sanji, Chopper, Jinbei, Shanks, King cobra, Blackbeard, \n Nami, Robin, Al vida, Vivi, Shiraoshi, Rebecca, Reiju, Big mom, Shaky, Boa hancock \n Press Enter to continue...")
-    if yes_or_no("Is this character a female? "):
-        if yes_or_no("Is this character a straw hat pirate?"):
-            if yes_or_no("Is this character a navigator?"):
-                if yes_or_no("Is your character Nami?"):
-                    print("Your character is Nami")
-                else:
-                    print("The character is not in the list")
-            else:
-                  if yes_or_no("Is your character Robin?"):
-                     print("Your character is Robin")
-                  else:
-                      print("The character is not in the list")
+    print("\nWelcome to One Piece mini games!")
+    print("Think of a character, and I will try to guess it.\n")
+ 
+    possible_characters = set(characters.keys())
+    asked_traits = set()
+ 
+ 
+    while len(possible_characters) > 1:
+        trait = choose_best_trait(possible_characters, asked_traits)
+        if not trait:
+            break
+        readable_trait = trait.replace("_", " ")
+        if trait == "alabasta":
+            readable_trait = "from Alabasta"
+        answer = yes_or_no(f"Is this character a {readable_trait}?")
+        asked_traits.add(trait)
+        if answer:
+            possible_characters = {char for char in possible_characters if characters[char].get(trait, False)}
         else:
-            if yes_or_no("Is this character currently a pirate?"):
-                if yes_or_no("is/was this character a yonko?"):
-                    if yes_or_no("Is your character Big mom?"):
-                        print("Your character is Big mom")
-                    else:
-                        print("The character is not in the list")
-                else:
-                    if yes_or_no("Is she a empress?"):
-                        if yes_or_no("Is your character Boa hancock?"):
-                            print("Your character is Boa hancock")
-                        else:
-                            print("The character is not in the list")
-                    else:
-                        if yes_or_no("is your character Alivda?"):
-                          print("Your character is Alvida")
-                        else:
-                          print("The character is not in the list")
-            else:
-                if yes_or_no("Is this character a princess?"):
-                    if yes_or_no("has your character pink hair?"):
-                        if yes_or_no("Is your character Vivi?"):
-                            if yes_or_no("is your character a fishman?"):
-                                if yes_or_no("Is your character Shirahoshi?"):
-                                    print("Your character is Shirahoshi")
-                                else:
-                                    print("The character is not in the list")
-                            else:
-                                if yes_or_no("Is your character Reiju?"):
-                                    print("Your character is Reiju")
-                                else:
-                                    print("The character is not in the list")             
-                else:
-                    if yes_or_no("Is she a gladiator?"):
-                        if yes_or_no("Is your character Rebecca?"):
-                            print("Your character is Rebecca")
-                        else:
-                            print("The character is not in the list")
-                    else:
-                        if yes_or_no("Is your character Shakky?"):
-                            print("Your character is Shakky")
-                        else:
-                            print("The character is not in the list")
-                  
+            possible_characters = {char for char in possible_characters if not characters[char].get(trait, False)}
+ 
+    if len(possible_characters) == 1:
+        is_character = yes_or_no(f"\nIs your character {list(possible_characters)[0]}?")
+        count_asked_traits = len(asked_traits)
+    if is_character:
+        print(f"\nI guessed your character in {count_asked_traits} questions!")
     else:
-        if yes_or_no("Is this character a straw hat pirate?"):
-           if yes_or_no("Is this character the captain?"):
-             if yes_or_no("Is your character Luffy?"):
-                print("Your character is Luffy")
-             else:
-                 print("The character is not in the list")
-           else:
-            if yes_or_no("Is this character a swordsman?"):
-                 if yes_or_no("Is this character a Skeleton musician?"):
-                     if yes_or_no("Is your character Brook?"):
-                        print("Your character is Brook")
-                     else: 
-                         print("The character is not in the list")   
-                 else:
-                     if yes_or_no("Is your character Zoro?"):
-                        print("Your character is Zoro")
-                     else:
-                        print("The character is not in the list")
-                     
-            else:
-               if yes_or_no("Is this character a cook?"):
-                  if yes_or_no("Is your character Sanji?"):
-                     print("Your character is Sanji")
-                  else:
-                      print("The character is not in the list") 
-               else:      
-                if yes_or_no("Is this character a reindeer/doctor?"):
-                  if yes_or_no("Is your character Chopper?"):
-                     print("Your character is Chopper")
-                  else:
-                     print("The character is not in the list")
-                else:
-                 if yes_or_no("Is this character a Fishman?"):
-                  if yes_or_no("Is your character Jinbe?"):
-                     print("Your character is Jinbe")
-                  else:
-                     print("The character is not in the list")
-                 else:
-                  if yes_or_no("Is your character Franky?"):
-                     print("Your character is Franky")
-                  else:
-                     print("The character is not in the list")
-        else: 
-            if yes_or_no("Is this character a yonko?"):
-                if yes_or_no("Does this character have red-hair?"):
-                    if yes_or_no("Is your character Shanks?"):
-                        print("Your character is Shanks")
-                    else:
-                        print("The character is not in the list")
-                else: 
-                    if yes_or_no("Is your character Blackbeard?"):
-                        print("Your character is Blackbeard")
-                    else:
-                        print("The character is not in the list")
-            else:
-             if yes_or_no("Is this character a King of a kingdom?"):
-                if yes_or_no("Is your character King cobra?"):
-                    print("Your character is King cobra")
-                else:
-                    print("The character is not in the list")
-    
-                    
+        print("\nThe character is not in the list.")
+ 
+ 
 while True:
     guess_character()
-    if not yes_or_no("Do you want to play again? (yes/no)"):
-        print("Thank you for playing!")
+    if not yes_or_no("\n Do you want to play again?"):
+        print("\n Thank you for playing!")
         break
-                    
-                   
-                
-               
-              
