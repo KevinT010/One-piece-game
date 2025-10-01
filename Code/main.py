@@ -29,7 +29,7 @@ def choose_best_trait( possible_characters, asked_traits):
  
 def guess_character():
     print("\nWelcome to One Piece mini games!")
-    print("Think of a character, and I will try to guess it.\n")
+    input("Think of a character, and I will try to guess it. Press Enter to continue...\n")
  
     possible_characters = set(characters.keys())
     asked_traits = set()
