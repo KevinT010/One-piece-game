@@ -9,7 +9,7 @@ def yes_or_no(question):
             print("Invalid input. Pleas type yes or no")
             
 
-def gues_character():
+def guess_character():
     input(" Welcome to one piece akinitor you can choose between those characters: Franky, Brook, Luffy, Zoro, Sanji, Chopper, Jinbei, Shanks, King cobra, Blackbeard, \n Nami, Robin, Al vida, Vivi, Shiraoshi, Rebecca, Reiju, Big mom, Shaky, Boa hancock \n Press Enter to continue...")
     if yes_or_no("Is this character a female? "):
         print("You selected a female character.")
@@ -77,7 +77,7 @@ def gues_character():
     
                     
 while True:
-    gues_character()
+    guess_character()
     if not yes_or_no("Do you want to play again? (yes/no)"):
         print("Thank you for playing!")
         break
