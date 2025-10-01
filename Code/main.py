@@ -74,8 +74,13 @@ def gues_character():
                     print("Your character is King cobra")
                 else:
                     print("The character is not in the list")
+    
                     
-gues_character()
+while True:
+    gues_character()
+    if not yes_or_no("Do you want to play again? (yes/no)"):
+        print("Thank you for playing!")
+        break
                     
                    
                 
