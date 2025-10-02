@@ -52,11 +52,12 @@ def guess_character():
     if len(possible_characters) == 1:
         is_character = yes_or_no(f"\nIs your character {list(possible_characters)[0]}?")
         count_asked_traits = len(asked_traits)
-    if is_character:
-        print(f"\nYour character is: {list(possible_characters)[0]}")
-        print(f"I guessed your character in {count_asked_traits} questions!")
-    else:
-        print("\nThe character is not in the list.")
+
+        if is_character:
+            print(f"\nYour character is: {list(possible_characters)[0]}")
+            print(f"I guessed your character in {count_asked_traits} questions!")
+        else:
+            print("\nThe character is not in the list.")
  
  
 while True:

@@ -4,10 +4,10 @@ characters = {
     "Sanji": {"female": False, "strawhat_pirate": True, "cook": True, "pirate": True},
     "Chopper": {"female": False, "strawhat_pirate": True, "doctor": True, "reindeer": True, "pirate": True},
     "Franky": {"female": False, "strawhat_pirate": True, "cyborg": True, "pirate": True},
-    "Brook": {"female": False, "strawhat_pirate": True, "musician": True, "skeleton": True, "pirate": True},
+    "Brook": {"female": False, "strawhat_pirate": True, "musician": True, "skeleton": True, "pirate": True, "swordsman": True},
     "Jinbei": {"female": False, "strawhat_pirate": True, "fishman": True, "pirate": True},
     "Shanks": {"female": False, "yonko": True, "red_hair": True, "pirate": True},
-    "Blackbeard": {"female": False, "yonko": True, "red_hair": False, "pirate": True},
+    "Blackbeard": {"female": False, "yonko": True, "red_hair": False, "pirate": True, "darkness devil fruit user": True},
     "King Cobra": {"female": False, "king": True},
     "Nami": {"female": True, "strawhat_pirate": True, "navigator": True, "pirate": True},
     "Robin": {"female": True, "strawhat_pirate": True, "archaeologist": True, "pirate": True},
@@ -37,5 +37,5 @@ traits = [
     "red_hair", "pirate_empress", "king", "princess", "alabasta",
     "gladiator", "germa", "bartender", "retired_pirate", "pirate", "reindeer", "sniper",
     "clown", "fire user", "revolutionary", "marine", "smoke devil fruit user", "admiral", "warlord",
-    "string_string fruit user", "sand devil fruit user"
+    "string_string fruit user", "sand devil fruit user", "mythical zoan devil fruit user", "darkness devil fruit user"
 ]
