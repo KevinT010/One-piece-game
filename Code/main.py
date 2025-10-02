@@ -20,9 +20,9 @@ def choose_best_trait( possible_characters, asked_traits):
         total_characters_with_trait = sum(1 for char in  possible_characters if characters[char].get(trait, False))
         total_characters_without_trait = len( possible_characters) - total_characters_with_trait
        
-        differents = abs(total_characters_with_trait - total_characters_without_trait)
-        if 0 < total_characters_with_trait < len( possible_characters) and differents < best_difference:
-            best_difference = differents
+        difference = abs(total_characters_with_trait - total_characters_without_trait)
+        if 0 < total_characters_with_trait < len( possible_characters) and difference < best_difference:
+            best_difference = difference
             best_trait = trait
            
     return best_trait

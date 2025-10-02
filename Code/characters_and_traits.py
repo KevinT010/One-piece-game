@@ -20,7 +20,7 @@ characters = {
     "Reiju": {"female": True, "princess": True, "germa": True},
     "Shakky": {"female": True, "bartender": True, "retired_pirate": True},
     "Usopp": {"female": False, "strawhat_pirate": True, "sniper": True, "pirate": True},
-    "Buggy": {"female": False, "pirate": True, "clown": True},
+    "Buggy": {"female": False, "pirate": True, "clown": True, "yonko": True},
     "Ace": {"female": False, "pirate": True, "fire user": True},
     "Sabo": {"female": False, "revolutionary": True, "fire user": True},
     "Smoker": {"female": False, "marine": True, "smoke devil fruit user": True},
